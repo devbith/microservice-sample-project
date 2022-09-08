@@ -5,6 +5,6 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com-devbith:devbith/spring-cloud-example-project01-configs.git
+          uri: git@github.com:devbith/spring-cloud-example-project01-configs.git
 server:
   port: 8888
