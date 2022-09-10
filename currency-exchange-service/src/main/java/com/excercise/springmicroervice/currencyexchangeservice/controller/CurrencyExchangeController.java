@@ -1,6 +1,6 @@
 package com.excercise.springmicroervice.currencyexchangeservice.controller;
 
-import com.excercise.springmicroervice.currencyexchangeservice.bean.CurrencyExchange;
+import com.excercise.springmicroervice.currencyexchangeservice.model.CurrencyExchange;
 import com.excercise.springmicroervice.currencyexchangeservice.service.CurrencyExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 @RestController

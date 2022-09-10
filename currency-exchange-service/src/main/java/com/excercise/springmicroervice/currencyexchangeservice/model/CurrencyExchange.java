@@ -1,4 +1,4 @@
-package com.excercise.springmicroervice.currencyexchangeservice.bean;
+package com.excercise.springmicroervice.currencyexchangeservice.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

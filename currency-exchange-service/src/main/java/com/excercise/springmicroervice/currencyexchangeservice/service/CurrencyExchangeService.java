@@ -1,6 +1,6 @@
 package com.excercise.springmicroervice.currencyexchangeservice.service;
 
-import com.excercise.springmicroervice.currencyexchangeservice.bean.CurrencyExchange;
+import com.excercise.springmicroervice.currencyexchangeservice.model.CurrencyExchange;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
