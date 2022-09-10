@@ -1,10 +1,19 @@
 package com.excercise.springmicroervice.currencyexchangeservice.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class CurrencyExchange {
+@Entity
+public class CurrencyExchange implements Serializable {
+
+    @Id
     private Long id;
+    @Column(name = "currencyFrom")
     private String from;
+    @Column(name = "currencyTo")
     private String to;
     private BigDecimal conversionMultiple;
     private String environment;

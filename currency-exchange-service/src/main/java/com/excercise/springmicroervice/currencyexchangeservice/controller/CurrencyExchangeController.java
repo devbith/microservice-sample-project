@@ -21,5 +21,5 @@ public class CurrencyExchangeController {
         final CurrencyExchange currencyExchange = new CurrencyExchange(100L, from, to, BigDecimal.valueOf(50));
         currencyExchange.setEnvironment(port);
         return currencyExchange;
-    }
+}
 }
