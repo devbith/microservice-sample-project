@@ -11,6 +11,18 @@ public class ApiGatewayConfiguration {
   @Bean
   public RouteLocator gatewayRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
     return routeLocatorBuilder.routes()
-        .route(p -> p.path("/get").uri("http://httpbin.org")).build();
+        .route(p -> p.path("/get")
+            .filters( f -> f
+                .addRequestHeader("MyHeader", "MYUri")
+                .addRequestParameter("MyParam", "ParamValue"))
+            .uri("http://httpbin.org"))
+        .route(p -> p.path("/currency-exchange/**") .uri("lb://currency-exchange"))
+        .route(p -> p.path("/currency-conversion/**") .uri("lb://currency-conversion"))
+        .route(p -> p.path("/currency-conversion-feign/**").uri("lb://currency-conversion-feign"))
+        .route(p -> p.path("/currency-conversion-new/**")
+            .filters(f -> f.rewritePath("/currency-conversion-new/(?<segement>.*)", "/currency-conversion-feign/${segment}"))
+            .uri("lb://currency-conversion-feign"))
+        .build();
+
   }
 }
