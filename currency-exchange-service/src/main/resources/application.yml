@@ -21,12 +21,21 @@ eureka:
   instance:
     prefer-ip-address: true
 
-resilience4j:
-  retry:
+resilience4j.retry:
     instances:
-      sample-api-retry:
+      sampleA:
         maxAttempts: 5
         waitDuration: 1s
         enableExponentialBackoff: true
 
+resilience4j.ratelimiter:
+    instances:
+        sampleA:
+          limitForPeriod: 2
+          limitRefreshPeriod: 10s
+
+resilience4j.bulkhead:
+    instances:
+      sampleA:
+        maxConcurrentCalls: 10
 
