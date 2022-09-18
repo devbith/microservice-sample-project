@@ -1,0 +1,11 @@
+### Docker
+Docker is a container management tool. It helps to pack application and all its dependencis together.
+It makes a easy and efficient containrized deployments. 
+
+## Hypervisor
+A hypervisor is a sfotware that makes virtualization possible. It divided the host system and allocates the resouces to each divided virtual environment.
+Basically it makes it possible to run multiple OS on a single host system. 
+
+There are two types of hypervisor
+
+
