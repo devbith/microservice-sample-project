@@ -11,6 +11,10 @@ spring:
   h2:
     console:
       enabled: true
+  sleuth:
+    sampler:
+      baseUrl: http://localhost:9411
+      probability: 1.0
 
 server:
   port: 8000
