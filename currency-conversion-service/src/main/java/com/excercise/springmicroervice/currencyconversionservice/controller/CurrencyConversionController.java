@@ -2,6 +2,8 @@ package com.excercise.springmicroervice.currencyconversionservice.controller;
 
 import com.excercise.springmicroervice.currencyconversionservice.dto.CurrencyConversion;
 import com.excercise.springmicroervice.currencyconversionservice.proxy.CurrencyExchangeProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ import java.util.HashMap;
 
 @RestController
 public class CurrencyConversionController {
+
+
+    private Logger logger = LoggerFactory.getLogger(CurrencyConversionController.class);
 
 
     @Autowired
@@ -40,8 +45,13 @@ public class CurrencyConversionController {
 
         CurrencyConversion currencyConversion = currencyExchangeProxy.calculateConversion(from, to);
 
-        return new CurrencyConversion(currencyConversion.getId(), from, to, quantity,
+        logger.info("Calculating conversion:  from="+from+", to="+to+", quantity="+quantity);
+
+        CurrencyConversion calculatedCurrencyConversion = new CurrencyConversion(currencyConversion.getId(), from, to, quantity,
                 currencyConversion.getConversionMultiple(), quantity.multiply(currencyConversion.getConversionMultiple()),
                 currencyConversion.getEnvironment() + " feign");
+
+        logger.info("Total conversion: "+calculatedCurrencyConversion.getTotalCalculatedAmount().toString());
+        return currencyConversion;
     }
 }

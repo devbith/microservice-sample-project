@@ -11,35 +11,46 @@ spring:
   h2:
     console:
       enabled: true
-  sleuth:
-    sampler:
-      baseUrl: http://localhost:9411
-      probability: 1.0
+#  sleuth:
+#    sampler:
+#      baseUrl: http://localhost:9411
+#      probability: 1.0
 
 server:
   port: 8000
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    prefer-ip-address: true
+#
+#resilience4j.retry:
+#    instances:
+#      sampleA:
+#        maxAttempts: 5
+#        waitDuration: 1s
+#        enableExponentialBackoff: true
+#
+#resilience4j.ratelimiter:
+#    instances:
+#        sampleA:
+#          limitForPeriod: 2
+#          limitRefreshPeriod: 10s
+#
+#resilience4j.bulkhead:
+#    instances:
+#      sampleA:
+#        maxConcurrentCalls: 10
+#
 
-resilience4j.retry:
-    instances:
-      sampleA:
-        maxAttempts: 5
-        waitDuration: 1s
-        enableExponentialBackoff: true
-
-resilience4j.ratelimiter:
-    instances:
-        sampleA:
-          limitForPeriod: 2
-          limitRefreshPeriod: 10s
-
-resilience4j.bulkhead:
-    instances:
-      sampleA:
-        maxConcurrentCalls: 10
-
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true

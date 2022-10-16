@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-@RestController
+//@RestController
 public class CircuitBreakerController {
 
     private Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
 
-    @GetMapping("/sample-api")
-    //@Retry(name = "sampleA", fallbackMethod = "hardCodedResponse")
-    @CircuitBreaker(name = "sampleA", fallbackMethod = "hardCodedResponse")
-    @RateLimiter(name = "sampleA")
-    @Bulkhead(name = "sampleA")
+    //@GetMapping("/sample-api")
+    ////@Retry(name = "sampleA", fallbackMethod = "hardCodedResponse")
+    //@CircuitBreaker(name = "sampleA", fallbackMethod = "hardCodedResponse")
+    //@RateLimiter(name = "sampleA")
+    //@Bulkhead(name = "sampleA")
     public String sampleApi() {
         logger.info("Sample API call received");
         ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/some-duppy-url", String.class);
