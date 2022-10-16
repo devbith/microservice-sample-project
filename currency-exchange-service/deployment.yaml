@@ -23,9 +23,17 @@ spec:
         app: currency-exchange
     spec:
       containers:
-      - image: devbith/spring-microservice-currency-exchange-service:0.0.1-SNAPSHOT
+      - image: devbith/spring-microservice-currency-exchange-service:0.0.2-SNAPSHOT
         imagePullPolicy: IfNotPresent
         name: spring-microservice-currency-exchange-service
+        readinessProbe:
+          httpGet:
+            port: 8000
+            path: /actuator/health/readiness
+        livenessProbe:
+          httpGet:
+            port: 8000
+            path: /actuator/health/liveness
       restartPolicy: Always
 ---      
 apiVersion: v1

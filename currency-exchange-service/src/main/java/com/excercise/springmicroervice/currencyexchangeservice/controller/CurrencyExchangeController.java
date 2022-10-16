@@ -29,7 +29,7 @@ public class CurrencyExchangeController {
 
         final String port = environment.getProperty("local.server.port");
         final String host = environment.getProperty("HOSTNAME");
-        final String version = "v2";
+        final String version = "v0.0.2";
 
         Optional<CurrencyExchange> currencyExchangeOptional = currencyExchangeService.findByFromAndTo(from, to);
         if (currencyExchangeOptional.isPresent()) {

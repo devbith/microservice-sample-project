@@ -52,6 +52,6 @@ public class CurrencyConversionController {
                 currencyConversion.getEnvironment() + " feign");
 
         logger.info("Total conversion: "+calculatedCurrencyConversion.getTotalCalculatedAmount().toString());
-        return currencyConversion;
+        return calculatedCurrencyConversion;
     }
 }
