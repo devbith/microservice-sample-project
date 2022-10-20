@@ -26,11 +26,15 @@ public class CurrencyExchangeController {
     @GetMapping("/currency-exchange/from/{from}/to/{to}")
     public CurrencyExchange retrieveExchange(@PathVariable String from, @PathVariable String to) {
         logger.info("retrieve value from {} to {}", from, to);
+
         final String port = environment.getProperty("local.server.port");
+        final String host = environment.getProperty("HOSTNAME");
+        final String version = "v0.0.2";
+
         Optional<CurrencyExchange> currencyExchangeOptional = currencyExchangeService.findByFromAndTo(from, to);
         if (currencyExchangeOptional.isPresent()) {
             CurrencyExchange currencyExchange = currencyExchangeOptional.get();
-            currencyExchange.setEnvironment(port);
+            currencyExchange.setEnvironment(port +":"+host+"  "+version);
             return currencyExchange;
         }
         throw new RuntimeException("Currency not found");
