@@ -11,6 +11,6 @@
 | Zipkin Distributed Tracing Server |   9411                      |
 
 
-#### To Deploy Currency Exchange And Currency Conversion Service In Kubernetes Of <a href="https://console.cloud.google.com/">Google Cloud Platform</a>
+#### To Deploy `Currency Exchange` And `Currency Conversion Service` In Kubernetes Of <a href="https://console.cloud.google.com/">Google Cloud Platform</a>
 Checkout branch name <a href="https://github.com/devbith/microservice-sample-project/pull/1"> `gcp-k8s-deploy` </a>
 
